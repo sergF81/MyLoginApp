@@ -18,9 +18,8 @@ class SecondActivity : AppCompatActivity() {
     var gsc: GoogleSignInClient? = null
     lateinit var name: TextView
     lateinit var email: TextView
-    var photo:Uri? = null
-   lateinit var buttonSignOut: Button
-   lateinit var imageViewPhoto: ImageView
+    lateinit var buttonSignOut: Button
+    lateinit var imageViewPhoto: ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
@@ -35,25 +34,23 @@ class SecondActivity : AppCompatActivity() {
         if (acct != null) {
             var personName = acct.displayName
             var personEmail = acct.email
-                //   var personPhoto: Uri? = acct.photoUrl
+            var personPhoto = acct.photoUrl
             name.setText(personName)
             email.setText(personEmail)
-            photo = acct.photoUrl
-                //   personPhoto  =  "file:///C:/cia_test.gif".toUri()
-//            Picasso.with(this)
-//            .load(personPhoto)
-//            .into(imageViewPhoto)
-           // imageViewPhoto.setImageURI(personPhoto)
+
+            Picasso.with(this)
+            .load(personPhoto)
+            .into(imageViewPhoto)
+
+            println(personName)
+            println(personPhoto)
+
         }
         buttonSignOut.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View?) {
                 signOut()
             }
         })
-
-        Picasso.with(this)
-            .load(photo)
-            .into(imageViewPhoto);
     }
 
     fun signOut() {
