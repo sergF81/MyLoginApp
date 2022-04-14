@@ -28,7 +28,7 @@ class SecondActivity : AppCompatActivity() {
         imageViewPhoto = findViewById(R.id.imageViewPhoto)
         buttonSignOut = findViewById(R.id.buttonSignOut)
         gso =
-            GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build()
+            GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestProfile().build()
         gsc = GoogleSignIn.getClient(this, gso!!)
         val acct = GoogleSignIn.getLastSignedInAccount(this)
         if (acct != null) {

@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         buttonSignIn = findViewById(R.id.buttonSignIn)
 
         gso =
-            GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build()
+            GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestProfile().build()
         gsc = GoogleSignIn.getClient(this, gso)
         var acct: GoogleSignInAccount? = GoogleSignIn.getLastSignedInAccount(this)
         if (acct != null) {
